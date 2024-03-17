@@ -11,7 +11,7 @@ The seed_database() function initializes the database by creating necessary tabl
 - Drops existing tables for Customer, Review, and Restaurant.
 - Creates new tables for Customer, Review, and Restaurant.
   Seeds the database with sample data including customers, restaurants, and reviews.
-- Displays information about customers, restaurants, and reviews for testing purposes.
+- Displays information about customers, restaurants, and reviews as per the code challenge requirements.
 
 #### Models:
 
