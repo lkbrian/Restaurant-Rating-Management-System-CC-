@@ -28,6 +28,7 @@ def seed_database():
     movenpick = Restaurant.create("Movenpick hotel", 100000)
     villarossa = Restaurant.create("Villa Rosa Kempinski", 280000)
     Restaurant.create("Radisson Blu hotel", 120000)
+    Restaurant.create("Radisson Blu hotel", 120000)
     Restaurant.create("Tamarind Tree hotel", 60000)
 
     brians_meridian_review = Review.create(meridian.id, customer_one.id, 4)

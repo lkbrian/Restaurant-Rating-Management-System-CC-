@@ -87,13 +87,6 @@ class Review:
         CONNECTION.commit()
         self.id = CURSOR.lastrowid
 
-    def delete(self):
-        CURSOR.execute(
-            """DELETE FROM reviews WHERE id = ?
-        """,
-            (self.id),
-        )
-        CONNECTION.commit()
 
     @classmethod
     def create(cls, restaurant_id, customer_id, star_rating):

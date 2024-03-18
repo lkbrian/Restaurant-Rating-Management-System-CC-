@@ -1,4 +1,5 @@
 from models.__init__ import CONNECTION, CURSOR
+import sqlite3
 
 
 class Restaurant:
@@ -59,28 +60,15 @@ class Restaurant:
         CONNECTION.commit()
         self.id = CURSOR.lastrowid
 
-    def update(self):
-        CURSOR.execute(
-            """UPDATE restaurants
-            SET name = ?,price = ? WHERE id = ?
-        """,
-            (self.name, self.price, self.id),
-        )
-        CONNECTION.commit()
-
-    def delete(self):
-        CURSOR.execute(
-            """DELETE FROM restaurants WHERE id = ?
-        """,
-            (self.id,),
-        )
-        CONNECTION.commit()
-
     @classmethod
     def create(cls, name, price):
-        restaurant = cls(name, price)
-        restaurant.save()
-        return restaurant
+        try:
+            restaurant = cls(name, price)
+            restaurant.save()
+            return restaurant
+        except sqlite3.IntegrityError:
+            print("restaurant already exists")
+    
 
     print("Created Restaurant Succesfully")
 
